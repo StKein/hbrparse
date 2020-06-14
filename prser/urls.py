@@ -1,7 +1,7 @@
-from django.urls import include, path
-from .views import PostViewSet
+from django.conf.urls import include, url
+from .views import PostList, PostDetail
 
 urlpatterns = [
-    path('', PostViewSet.list),
-    path('<int:pk>/', PostViewSet.retrieve)
+    url(r'^$', PostList.as_view(), name='post-list'),
+    url(r'^(?P<pk>\d+)/$', PostDetail.as_view(), name='post-detail'),
 ]
