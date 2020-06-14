@@ -1,4 +1,4 @@
-# django migrations 
+# Django migrations 
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
@@ -10,3 +10,6 @@ __pycache__/
 
 # DB storage
 *.sqlite3
+
+# Venv
+.env/
