@@ -6,7 +6,7 @@ from .serializers import PostListSerializer, PostDetailSerializer
 from .models import Post
 
 
-class PostList(generics.ListCreateAPIView):
+class PostList(generics.ListAPIView):
     """
     API endpoint that represents a list of Posts.
     """
