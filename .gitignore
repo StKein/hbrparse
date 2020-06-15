@@ -16,3 +16,6 @@ __pycache__/
 
 # Logs
 logs/*.log
+
+# Celery beat autogen files
+celerybeat*

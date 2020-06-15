@@ -1,3 +1,4 @@
+""" Celery project example """
 import os
 from celery import Celery
 

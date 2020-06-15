@@ -1,3 +1,4 @@
+""" Tasks to be daemonized """
 import logging
 import requests
 from celery import shared_task
@@ -9,10 +10,11 @@ from celery.utils.log import get_task_logger
 
 logger = get_task_logger(__name__)
 
+""" Parse posts from Habr daily top, save to db """
 @shared_task
 def parseHabr():
     logging.info('Started parsing')
-
+    
     try:
         req = requests.get('https://habr.com/ru/top/')
     except Exception as e:
@@ -32,7 +34,7 @@ def parseHabr():
         logging.critical('Could not get posts list from response')
         return
     
-    saved_posts = 0
+    saved_posts = 0 # For logging
     logging.info('Found {} posts'.format(len(links)))
     for link in links:
         link = link.get('href')
@@ -56,6 +58,7 @@ def parseHabr():
             logging.error('Could not save post from {}: {}'.format(link, e))
     logging.info('Finished. Saved {} posts'.format(saved_posts))
 
+""" Test task to check if daemon runs correctly """
 @shared_task
 def testCel(**kwargs):
     logging.info('testcel task ran')
