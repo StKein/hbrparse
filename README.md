@@ -6,7 +6,7 @@ Django REST application that parses daily top posts from Habr
 2. Open terminal, cd into directory you cloned repository to
 3. (preferably) Make virtual environment, activate it
 4. Type following:
-> pip install -r requirements.txt
+  - pip install -r requirements.txt
 # Running:
 0. Open terminal in cloned repository directory
 1. (if venv was added) Activate venv
@@ -25,4 +25,4 @@ Django REST application that parses daily top posts from Habr
 - Single post: /api/posts/<int>
   - /api/posts/13
   - /api/posts/6
-Each post in posts list contains API link to it, no need to guess
+- Each post in posts list contains API link to it, no need to guess
