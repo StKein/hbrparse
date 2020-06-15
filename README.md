@@ -11,18 +11,18 @@ Django REST application that parses daily top posts from Habr
 0. Open terminal in cloned repository directory
 1. (if venv was added) Activate venv
 2. Run server:
-> python manage.py runserver
+  - python manage.py runserver
 3. Now you can browse API via browser or requests (Postman, curl, ...)
 # Parsing:
 0. Open terminal in cloned repository directory, activate venv if it was added
 1. Run app in shell:
-> python manage.py shell
+  - python manage.py shell
 2. Run parser script:
-> from prser.tasks import parseHabr
-> parseHabr()
+  - from prser.tasks import parseHabr
+  - parseHabr()
 # API URLs:
 - Posts list: /api/posts/
 - Single post: /api/posts/<int>
-  > /api/posts/13
-  > /api/posts/6
+  - /api/posts/13
+  - /api/posts/6
 Each post in posts list contains API link to it, no need to guess
