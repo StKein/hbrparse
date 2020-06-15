@@ -5,7 +5,6 @@ import sys
 
 import logging.config
 logging.config.fileConfig('logs/log.conf')
-#logging.config.dictConfig('logs/config.json')
 
 
 def main():
