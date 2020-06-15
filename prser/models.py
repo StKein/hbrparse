@@ -9,7 +9,11 @@ class Post(models.Model):
 
     @property
     def anons(self):
-        return self.text[:700]
+        return self.text.replace('\r','').replace('\n',' ')[:700]
+    
+    @property
+    def inner_link(self):
+        return '/api/posts/{}'.format(self.id)
     
     class Meta:
         ordering = ['-time']
