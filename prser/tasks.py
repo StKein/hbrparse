@@ -1,10 +1,15 @@
 import logging
 import requests
+from celery import shared_task
 from datetime import datetime
 from django.utils.timezone import make_aware
 from lxml import html
-from .models import Post
+from prser.models import Post
+from celery.utils.log import get_task_logger
 
+logger = get_task_logger(__name__)
+
+@shared_task
 def parseHabr():
     logging.info('Started parsing')
 
@@ -50,3 +55,9 @@ def parseHabr():
         except Exception as e:
             logging.error('Could not save post from {}: {}'.format(link, e))
     logging.info('Finished. Saved {} posts'.format(saved_posts))
+
+@shared_task
+def testCel(**kwargs):
+    logging.info('testcel task ran')
+    logger.info('testcel task ran')
+    print("Testing!")
